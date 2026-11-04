@@ -1,3 +1,4 @@
+// modified- header with crystal shine get in touch button
 "use client"
 
 import { useState, useEffect } from "react"
@@ -80,12 +81,14 @@ export default function Header() {
                 transition={{ delay: 0.45 }}
                 className="hidden sm:block"
               >
-                <Button
-                  asChild
-                  className="bg-gradient-to-r from-[#1e63e9] to-[#06b6d4] hover:opacity-95 text-white font-semibold px-5 sm:px-6 py-2 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 text-sm cursor-pointer"
+                <Link
+                  href="/#contact"
+                  className="group relative inline-flex items-center justify-center bg-gradient-to-r from-[#0f46b8] via-[#1e63e9] to-[#06b6d4] text-white font-semibold px-5 sm:px-6 py-2 rounded-full transition-all duration-300 shadow-md shadow-blue-500/20 hover:shadow-[0_8px_24px_rgba(30,99,233,0.4)] hover:scale-[1.03] active:scale-[0.97] border border-white/25 overflow-hidden text-sm cursor-pointer"
                 >
-                  <Link href="/#contact">Get in Touch</Link>
-                </Button>
+                  <span className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/70 to-transparent pointer-events-none" />
+                  <span className="absolute -top-[50%] -bottom-[50%] -left-[100%] w-[60%] bg-gradient-to-r from-transparent via-white/55 to-transparent -skew-x-[25deg] transition-all duration-700 ease-out group-hover:left-[170%] pointer-events-none" />
+                  <span className="relative z-10">Get in Touch</span>
+                </Link>
               </motion.div>
 
               <motion.button
@@ -166,14 +169,15 @@ export default function Header() {
                 </nav>
 
                 <div className="p-6 border-t border-slate-200">
-                  <Button
-                    asChild
-                    className="w-full bg-gradient-to-r from-[#1e63e9] to-[#06b6d4] text-white font-semibold py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-blue-500/25"
+                  <Link
+                    href="/#contact"
+                    onClick={closeMobileMenu}
+                    className="group relative flex w-full items-center justify-center bg-gradient-to-r from-[#0f46b8] via-[#1e63e9] to-[#06b6d4] text-white font-semibold py-3.5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-[0_8px_24px_rgba(30,99,233,0.4)] border border-white/25 overflow-hidden text-sm"
                   >
-                    <Link href="/#contact" onClick={closeMobileMenu}>
-                      Get in Touch
-                    </Link>
-                  </Button>
+                    <span className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/70 to-transparent pointer-events-none" />
+                    <span className="absolute -top-[50%] -bottom-[50%] -left-[100%] w-[60%] bg-gradient-to-r from-transparent via-white/55 to-transparent -skew-x-[25deg] transition-all duration-700 ease-out group-hover:left-[170%] pointer-events-none" />
+                    <span className="relative z-10">Get in Touch</span>
+                  </Link>
                   <p className="mt-4 text-center text-slate-500 text-sm">
                     Simplify Work. Amplify Growth.
                   </p>

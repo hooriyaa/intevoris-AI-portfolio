@@ -1,3 +1,4 @@
+// modified- footer with crystal shine button
 "use client";
 
 import { motion } from "framer-motion";
@@ -161,9 +162,11 @@ export default function Footer() {
             </div>
             <Link
               href="/#contact"
-              className="inline-block mt-6 bg-gradient-to-r from-[#1e63e9] to-[#06b6d4] text-white px-6 py-3 rounded-full font-semibold text-sm hover:opacity-95 transition-all duration-300 shadow-lg shadow-blue-500/20"
+              className="group relative inline-flex items-center justify-center mt-6 bg-gradient-to-r from-[#0f46b8] via-[#1e63e9] to-[#06b6d4] text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 shadow-md shadow-blue-500/20 hover:shadow-[0_8px_24px_rgba(30,99,233,0.4)] hover:scale-[1.03] active:scale-[0.97] border border-white/20 overflow-hidden cursor-pointer"
             >
-              Send Enquiry
+              <span className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/70 to-transparent pointer-events-none" />
+              <span className="absolute -top-[50%] -bottom-[50%] -left-[100%] w-[60%] bg-gradient-to-r from-transparent via-white/55 to-transparent -skew-x-[25deg] transition-all duration-700 ease-out group-hover:left-[170%] pointer-events-none" />
+              <span className="relative z-10">Send Enquiry</span>
             </Link>
           </motion.div>
         </div>

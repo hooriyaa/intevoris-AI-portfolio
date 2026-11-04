@@ -1,3 +1,4 @@
+// modified- about section dot pattern background contrast enhanced
 "use client"
 
 import { motion } from "framer-motion"
@@ -60,7 +61,7 @@ export default function AboutSection() {
       className="relative py-20 md:py-28 px-4 md:px-8 lg:px-16 bg-slate-50 overflow-hidden"
       id="about"
     >
-      <div className="absolute inset-0 opacity-[0.04]">
+      <div className="absolute inset-0 opacity-[0.14]">
         <div
           className="w-full h-full"
           style={{
@@ -115,15 +116,18 @@ export default function AboutSection() {
         <div className="about-content flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href="/#solutions"
-            className="bg-gradient-to-r from-[#1e63e9] to-[#06b6d4] text-white px-8 py-4 rounded-full font-semibold hover:opacity-95 transition-all duration-300 shadow-lg shadow-blue-500/20"
+            className="group relative inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-[#0f46b8] via-[#1e63e9] to-[#06b6d4] transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-[0_12px_32px_rgba(30,99,233,0.45)] hover:scale-[1.02] active:scale-[0.98] border border-white/25 overflow-hidden text-sm sm:text-base cursor-pointer"
           >
-            See Example Solutions
+            <span className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/70 to-transparent pointer-events-none" />
+            <span className="absolute -top-[50%] -bottom-[50%] -left-[100%] w-[60%] bg-gradient-to-r from-transparent via-white/55 to-transparent -skew-x-[25deg] transition-all duration-700 ease-out group-hover:left-[170%] pointer-events-none" />
+            <span className="relative z-10">See Example Solutions</span>
           </Link>
           <Link
             href="/#contact"
-            className="border border-slate-300 text-[#0b1f3a] px-8 py-4 rounded-full font-semibold hover:bg-white hover:border-blue-300 transition-all duration-300"
+            className="group relative inline-flex items-center justify-center px-8 py-3.5 rounded-full font-semibold text-[#0b1f3a] border-2 border-slate-300 bg-white/70 backdrop-blur-sm transition-all duration-300 hover:border-[#1e63e9] hover:text-[#1e63e9] hover:bg-white hover:shadow-lg hover:shadow-blue-500/10 hover:scale-[1.02] active:scale-[0.98] overflow-hidden text-sm sm:text-base cursor-pointer"
           >
-            Talk to Our Team
+            <span className="absolute -top-[50%] -bottom-[50%] -left-[100%] w-[50%] bg-gradient-to-r from-transparent via-blue-500/15 to-transparent -skew-x-[25deg] transition-all duration-700 ease-out group-hover:left-[170%] pointer-events-none" />
+            <span className="relative z-10">Talk to Our Team</span>
           </Link>
         </div>
       </div>
