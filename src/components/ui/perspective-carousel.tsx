@@ -173,29 +173,29 @@ export function PerspectiveCarousel({
                     ) : (
                       <div
                         className={cn(
-                          "h-full w-full select-none rounded-xl border border-blue-200 bg-gradient-to-b from-white via-blue-50 to-cyan-50 shadow-xl shadow-blue-500/10 flex flex-col items-center justify-center gap-4 p-5 text-center",
+                          "h-full w-full select-none rounded-xl border border-blue-200 bg-gradient-to-b from-white via-blue-50 to-cyan-50 shadow-xl shadow-blue-500/10 flex flex-col items-center justify-center gap-3 sm:gap-4 p-4 sm:p-5 text-center",
                           imageClassName
                         )}
                       >
                         {item.icon && (
-                          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1e63e9] to-[#06b6d4] flex items-center justify-center shadow-lg shadow-blue-500/25">
+                          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-[#1e63e9] to-[#06b6d4] flex items-center justify-center shadow-lg shadow-blue-500/25 shrink-0">
                             {item.icon}
                           </div>
                         )}
-                        <p className="text-base font-semibold text-[#0b1f3a] leading-snug">
+                        <p className="text-sm sm:text-base font-semibold text-[#0b1f3a] leading-snug">
                           {item.title}
                         </p>
                         {item.summary && (
-                          <p className="text-sm text-slate-600 leading-relaxed line-clamp-4">
+                          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-3 sm:line-clamp-4">
                             {item.summary}
                           </p>
                         )}
                         {item.tags && (
-                          <div className="flex flex-wrap justify-center gap-1.5 mt-auto">
+                          <div className="flex flex-wrap justify-center gap-1 sm:gap-1.5 mt-auto">
                             {item.tags.map((tag) => (
                               <span
                                 key={tag}
-                                className="text-xs font-medium bg-blue-100 text-[#1e63e9] px-2.5 py-1 rounded-full"
+                                className="text-[10px] sm:text-xs font-medium bg-blue-100 text-[#1e63e9] px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full"
                               >
                                 {tag}
                               </span>
@@ -229,7 +229,7 @@ export function PerspectiveCarousel({
       {showControls && (
         <div
           className={cn(
-            "absolute inset-x-4 bottom-5 z-10 mx-auto flex w-fit items-center justify-center gap-3 rounded-full border border-blue-200 bg-white/85 px-2 text-[#0b1f3a] shadow-lg shadow-blue-500/10 backdrop-blur-sm",
+            "absolute inset-x-4 bottom-3 sm:bottom-5 z-10 mx-auto flex w-fit items-center justify-center gap-2 sm:gap-3 rounded-full border border-blue-200 bg-white/85 px-1.5 sm:px-2 py-0.5 text-[#0b1f3a] shadow-lg shadow-blue-500/10 backdrop-blur-sm",
             controlsClassName
           )}
         >
@@ -237,14 +237,14 @@ export function PerspectiveCarousel({
             type="button"
             aria-label="Show previous slide"
             disabled={isPreviousDisabled}
-            className="inline-flex size-9 items-center justify-center rounded-full transition-colors hover:bg-blue-50 disabled:cursor-not-allowed disabled:opacity-35"
+            className="inline-flex size-8 sm:size-9 items-center justify-center rounded-full transition-colors hover:bg-blue-50 disabled:cursor-not-allowed disabled:opacity-35"
             onClick={() => selectSlide(currentIndex - 1)}
           >
-            <ChevronLeft className="size-5" />
+            <ChevronLeft className="size-4 sm:size-5" />
           </button>
 
           {showDots && (
-            <div className="flex items-center justify-center gap-2 text-[#1e63e9]">
+            <div className="flex items-center justify-center gap-1.5 sm:gap-2 text-[#1e63e9]">
               {items.map((item, index) => (
                 <button
                   key={`${item.title}-${index}`}
@@ -252,8 +252,8 @@ export function PerspectiveCarousel({
                   aria-label={`Show slide ${index + 1}: ${item.title}`}
                   aria-current={currentIndex === index ? "true" : undefined}
                   className={cn(
-                    "h-2 rounded-full bg-current transition-[width,opacity] duration-300",
-                    currentIndex === index ? "w-7 opacity-100" : "w-2 opacity-30"
+                    "h-1.5 sm:h-2 rounded-full bg-current transition-[width,opacity] duration-300",
+                    currentIndex === index ? "w-5 sm:w-7 opacity-100" : "w-1.5 sm:w-2 opacity-30"
                   )}
                   onClick={() => selectSlide(index)}
                 />
@@ -265,10 +265,10 @@ export function PerspectiveCarousel({
             type="button"
             aria-label="Show next slide"
             disabled={isNextDisabled}
-            className="inline-flex size-9 items-center justify-center rounded-full transition-colors hover:bg-blue-50 disabled:cursor-not-allowed disabled:opacity-35"
+            className="inline-flex size-8 sm:size-9 items-center justify-center rounded-full transition-colors hover:bg-blue-50 disabled:cursor-not-allowed disabled:opacity-35"
             onClick={() => selectSlide(currentIndex + 1)}
           >
-            <ChevronRight className="size-5" />
+            <ChevronRight className="size-4 sm:size-5" />
           </button>
         </div>
       )}

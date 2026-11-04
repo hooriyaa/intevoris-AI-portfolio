@@ -1,9 +1,19 @@
-// modified- services section transformed into interactive 3D books showcase
+// modified- services section with client-only 3D books and responsive sizing
 "use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { BooksShowcase, type BookCfg } from "@/components/ui/books-showcase";
+import dynamic from "next/dynamic";
+import { type BookCfg } from "@/components/ui/books-showcase";
+
+const BooksShowcase = dynamic(() => import("@/components/ui/books-showcase"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center bg-slate-50/50">
+      <div className="w-8 h-8 border-2 border-blue-500/20 border-t-blue-600 rounded-full animate-spin" />
+    </div>
+  ),
+});
 
 function drawServiceCover(
   x: CanvasRenderingContext2D,
@@ -374,7 +384,7 @@ export default function ServicesSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.08 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0b1f3a] tracking-tight"
+            className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-[#0b1f3a] tracking-tight"
           >
             Our{" "}
             <span className="bg-gradient-to-r from-[#0f46b8] via-[#1652d0] to-[#037899] bg-clip-text text-transparent">
@@ -386,7 +396,7 @@ export default function ServicesSection() {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="mt-2.5 text-slate-600 max-w-2xl mx-auto text-base sm:text-lg"
+            className="mt-2.5 text-slate-600 max-w-2xl mx-auto text-sm sm:text-base md:text-lg px-2"
           >
             End-to-end capability — from first use-case workshop to production AI that
             your team can trust and operate.
@@ -396,15 +406,15 @@ export default function ServicesSection() {
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.22 }}
-            className="mt-2 flex items-center justify-center gap-2 text-xs text-[#0f46b8] font-medium"
+            className="mt-2 flex items-center justify-center gap-2 text-[11px] sm:text-xs text-[#0f46b8] font-medium px-2 text-center"
           >
-            <span className="w-2 h-2 rounded-full bg-[#037899] animate-ping" />
+            <span className="w-2 h-2 rounded-full bg-[#037899] animate-ping shrink-0" />
             <span>Click or drag any service volume below to explore roadmap & deliverables</span>
           </motion.div>
         </div>
 
         {/* 3D Books Showcase Component */}
-        <div className="w-full h-[550px] sm:h-[620px] md:h-[660px] rounded-3xl border border-slate-200/80 bg-white/60 backdrop-blur-sm shadow-2xl shadow-blue-500/5 overflow-hidden relative">
+        <div className="w-full h-[460px] sm:h-[560px] md:h-[640px] rounded-2xl sm:rounded-3xl border border-slate-200/80 bg-white/60 backdrop-blur-sm shadow-2xl shadow-blue-500/5 overflow-hidden relative">
           <BooksShowcase
             books={serviceBooks}
             heroTitle="SERVICES"
@@ -429,10 +439,10 @@ export default function ServicesSection() {
         </div>
 
         {/* Bottom CTA bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-8 sm:mt-10 w-full max-w-sm sm:max-w-none mx-auto">
           <Link
             href="/#contact"
-            className="group relative inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-[#0f46b8] via-[#1e63e9] to-[#06b6d4] transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-[0_12px_32px_rgba(30,99,233,0.45)] hover:scale-[1.02] active:scale-[0.98] border border-white/25 overflow-hidden text-sm md:text-base cursor-pointer"
+            className="group relative inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-[#0f46b8] via-[#1e63e9] to-[#06b6d4] transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-[0_12px_32px_rgba(30,99,233,0.45)] hover:scale-[1.02] active:scale-[0.98] border border-white/25 overflow-hidden text-sm md:text-base cursor-pointer"
           >
             <span className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/70 to-transparent pointer-events-none" />
             <span className="absolute -top-[50%] -bottom-[50%] -left-[100%] w-[60%] bg-gradient-to-r from-transparent via-white/55 to-transparent -skew-x-[25deg] transition-all duration-700 ease-out group-hover:left-[170%] pointer-events-none" />
@@ -440,7 +450,7 @@ export default function ServicesSection() {
           </Link>
           <Link
             href="/#process"
-            className="group relative inline-flex items-center justify-center px-8 py-3.5 rounded-full font-semibold text-[#0b1f3a] border-2 border-slate-300 bg-white/70 backdrop-blur-sm transition-all duration-300 hover:border-[#1e63e9] hover:text-[#1e63e9] hover:bg-white hover:shadow-lg hover:shadow-blue-500/10 hover:scale-[1.02] active:scale-[0.98] overflow-hidden text-sm md:text-base cursor-pointer"
+            className="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 py-3.5 rounded-full font-semibold text-[#0b1f3a] border-2 border-slate-300 bg-white/70 backdrop-blur-sm transition-all duration-300 hover:border-[#1e63e9] hover:text-[#1e63e9] hover:bg-white hover:shadow-lg hover:shadow-blue-500/10 hover:scale-[1.02] active:scale-[0.98] overflow-hidden text-sm md:text-base cursor-pointer"
           >
             <span className="absolute -top-[50%] -bottom-[50%] -left-[100%] w-[50%] bg-gradient-to-r from-transparent via-blue-500/15 to-transparent -skew-x-[25deg] transition-all duration-700 ease-out group-hover:left-[170%] pointer-events-none" />
             <span className="relative z-10">See Our Working Process</span>

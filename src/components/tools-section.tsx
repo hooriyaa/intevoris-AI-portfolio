@@ -1,3 +1,4 @@
+// modified- responsive process section
 "use client"
 
 import { motion } from "framer-motion"
@@ -116,7 +117,7 @@ export default function ToolsSection() {
     <section
       ref={sectionRef}
       id="process"
-      className="py-20 md:py-28 px-4 bg-white relative overflow-hidden"
+      className="py-14 sm:py-20 md:py-28 px-4 bg-white relative overflow-hidden"
     >
       {/* n8n-style dot grid */}
       <div
@@ -130,21 +131,21 @@ export default function ToolsSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-transparent to-white/80 pointer-events-none" aria-hidden />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div ref={titleRef} className="text-center mb-12">
-          <div className="flex items-center justify-center gap-3 mb-4">
+        <div ref={titleRef} className="text-center mb-8 sm:mb-12">
+          <div className="flex items-center justify-center gap-3 mb-3 sm:mb-4">
             <div className="w-2 h-2 bg-[#1e63e9] rounded-full" />
-            <span className="text-slate-500 text-sm font-medium tracking-[0.2em] uppercase">
+            <span className="text-slate-500 text-xs sm:text-sm font-medium tracking-[0.2em] uppercase">
               How We Work
             </span>
             <div className="w-2 h-2 bg-[#06b6d4] rounded-full" />
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0b1f3a] tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-[#0b1f3a] tracking-tight leading-tight">
             Our Working{" "}
             <span className="bg-gradient-to-r from-[#1e63e9] to-[#06b6d4] bg-clip-text text-transparent">
               Process
             </span>
           </h2>
-          <p className="mt-4 text-slate-600 max-w-2xl mx-auto">
+          <p className="mt-3 sm:mt-4 text-slate-600 max-w-2xl mx-auto text-xs sm:text-sm md:text-base px-2">
             A clear path from first conversation to a working solution — watch the
             workflow run, stage by stage.
           </p>
@@ -319,9 +320,9 @@ export default function ToolsSection() {
             </div>
 
             {/* Mobile workflow — vertical */}
-            <ol className="md:hidden relative pl-4">
+            <ol className="md:hidden relative pl-1 sm:pl-4">
               <div
-                className="absolute left-[27px] top-4 bottom-4 w-0.5 bg-gradient-to-b from-[#1e63e9] via-[#06b6d4] to-slate-200"
+                className="absolute left-[23px] sm:left-[27px] top-4 bottom-4 w-0.5 bg-gradient-to-b from-[#1e63e9] via-[#06b6d4] to-slate-200"
                 aria-hidden
               />
               {steps.map((step, i) => {
@@ -329,11 +330,11 @@ export default function ToolsSection() {
                 const isDone = i < active
                 const Icon = step.icon
                 return (
-                  <li key={step.number} className="relative mb-5 last:mb-0 list-none">
+                  <li key={step.number} className="relative mb-4 sm:mb-5 last:mb-0 list-none">
                     <motion.div
                       animate={{ scale: isActive ? 1.02 : 1 }}
                       transition={{ type: "spring", stiffness: 300, damping: 22 }}
-                      className={`relative rounded-xl border p-4 pl-12 transition-all duration-300 ${
+                      className={`relative rounded-xl border p-3.5 sm:p-4 pl-11 sm:pl-12 transition-all duration-300 ${
                         isActive
                           ? "bg-white border-blue-400 shadow-lg shadow-blue-500/20"
                           : isDone
@@ -342,7 +343,7 @@ export default function ToolsSection() {
                       }`}
                     >
                       <span
-                        className={`absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg flex items-center justify-center ${
+                        className={`absolute left-2.5 sm:left-3 top-1/2 -translate-y-1/2 w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center ${
                           isActive
                             ? "bg-gradient-to-br from-[#1e63e9] to-[#06b6d4] text-white"
                             : isDone
@@ -350,13 +351,13 @@ export default function ToolsSection() {
                               : "bg-slate-100 text-slate-500"
                         }`}
                       >
-                        <Icon className="text-sm" aria-hidden />
+                        <Icon className="text-xs sm:text-sm" aria-hidden />
                       </span>
                       <p className="text-[10px] font-mono text-slate-400">{step.number}</p>
-                      <p className="text-sm font-bold text-[#0b1f3a]">{step.title}</p>
-                      <p className="text-xs text-slate-600 mt-1 leading-relaxed">{step.text}</p>
+                      <p className="text-xs sm:text-sm font-bold text-[#0b1f3a]">{step.title}</p>
+                      <p className="text-xs text-slate-600 mt-0.5 sm:mt-1 leading-relaxed">{step.text}</p>
                       <span
-                        className={`inline-flex items-center gap-1 mt-2 text-[10px] font-medium ${
+                        className={`inline-flex items-center gap-1 mt-1.5 sm:mt-2 text-[10px] font-medium ${
                           isActive
                             ? "text-blue-600"
                             : isDone
@@ -389,9 +390,9 @@ export default function ToolsSection() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="mt-8 mx-auto max-w-3xl rounded-2xl border border-blue-200 bg-gradient-to-r from-blue-50 via-white to-cyan-50 p-6 md:p-7 shadow-lg shadow-blue-500/10 text-center md:text-left md:flex md:items-center md:gap-6"
+          className="mt-6 sm:mt-8 mx-auto max-w-3xl rounded-2xl border border-blue-200 bg-gradient-to-r from-blue-50 via-white to-cyan-50 p-4 sm:p-6 md:p-7 shadow-lg shadow-blue-500/10 text-center md:text-left md:flex md:items-center md:gap-6"
         >
-          <span className="inline-flex shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1e63e9] to-[#06b6d4] text-white items-center justify-center text-xl shadow-lg shadow-blue-500/25 mb-4 md:mb-0">
+          <span className="inline-flex shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-[#1e63e9] to-[#06b6d4] text-white items-center justify-center text-lg sm:text-xl shadow-lg shadow-blue-500/25 mx-auto md:mx-0 mb-3 md:mb-0">
             {(() => {
               const Icon = activeStep.icon
               return <Icon aria-hidden />
@@ -401,10 +402,10 @@ export default function ToolsSection() {
             <p className="text-xs font-mono text-[#1e63e9] font-semibold mb-1">
               STEP {activeStep.number} · ACTIVE
             </p>
-            <h3 className="text-xl font-bold text-[#0b1f3a] mb-1.5">
+            <h3 className="text-lg sm:text-xl font-bold text-[#0b1f3a] mb-1">
               {activeStep.title}
             </h3>
-            <p className="text-slate-600 text-sm leading-relaxed">{activeStep.text}</p>
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{activeStep.text}</p>
           </div>
         </motion.div>
       </div>

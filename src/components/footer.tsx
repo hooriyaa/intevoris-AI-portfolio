@@ -1,4 +1,4 @@
-// modified- footer with crystal shine button
+// modified- footer with suppressHydrationWarning and responsive layout
 "use client";
 
 import { motion } from "framer-motion";
@@ -62,8 +62,8 @@ export default function Footer() {
         </motion.div>
       </div>
 
-      <div className="container mx-auto px-6 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
           {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -175,14 +175,14 @@ export default function Footer() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.28 }}
-          className="border-t border-slate-200 mt-12 pt-7 flex flex-col md:flex-row justify-between items-center gap-4"
+          className="border-t border-slate-200 mt-10 sm:mt-12 pt-6 sm:pt-7 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4 text-center sm:text-left"
         >
-          <p className="text-slate-500 text-sm">
+          <p className="text-slate-500 text-xs sm:text-sm" suppressHydrationWarning>
             © {currentYear} Intevoris AI Solutions. All rights reserved.
           </p>
-          <div className="flex space-x-6">
-            <span className="text-slate-400 text-sm">Privacy Policy</span>
-            <span className="text-slate-400 text-sm">Terms of Service</span>
+          <div className="flex space-x-5 sm:space-x-6">
+            <span className="text-slate-400 text-xs sm:text-sm">Privacy Policy</span>
+            <span className="text-slate-400 text-xs sm:text-sm">Terms of Service</span>
           </div>
         </motion.div>
       </div>

@@ -1,4 +1,4 @@
-// modified- reduced gap between heading and solutions cards carousel
+// modified- responsive solutions section with optimized vertical spacing
 "use client"
 
 import { useEffect, useRef } from "react"
@@ -107,17 +107,17 @@ export default function ProjectsSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="solutions" className="py-16 md:py-24 px-4 md:px-6 bg-slate-50 overflow-hidden">
+    <section ref={sectionRef} id="solutions" className="py-14 sm:py-20 md:py-24 px-4 md:px-6 bg-slate-50 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-5 sm:mb-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex items-center justify-center gap-3 mb-3"
+            className="flex items-center justify-center gap-3 mb-2.5 sm:mb-3"
           >
             <div className="w-2 h-2 bg-[#1e63e9] rounded-full" />
-            <p className="text-slate-500 text-sm font-medium tracking-[0.2em] uppercase">
+            <p className="text-slate-500 text-xs sm:text-sm font-medium tracking-[0.2em] uppercase">
               Example Solutions
             </p>
             <div className="w-2 h-2 bg-[#06b6d4] rounded-full" />
@@ -126,7 +126,7 @@ export default function ProjectsSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.08 }}
-            className="projects-title text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0b1f3a] tracking-tight"
+            className="projects-title text-2xl sm:text-4xl md:text-5xl font-extrabold text-[#0b1f3a] tracking-tight"
           >
             Solutions you can{" "}
             <span className="bg-gradient-to-r from-[#1e63e9] to-[#06b6d4] bg-clip-text text-transparent">
@@ -137,10 +137,10 @@ export default function ProjectsSection() {
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="mt-3.5 flex justify-center"
+            className="mt-3 flex justify-center px-2"
           >
-            <span className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold px-3.5 py-1.5 rounded-full uppercase tracking-wide">
-              <span className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-pulse" aria-hidden />
+            <span className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-800 text-[11px] sm:text-xs font-semibold px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full uppercase tracking-wide text-center">
+              <span className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-pulse shrink-0" aria-hidden />
               Demonstration only — not live client deployments
             </span>
           </motion.div>
@@ -148,7 +148,7 @@ export default function ProjectsSection() {
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-3 text-slate-600 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed"
+            className="mt-2.5 sm:mt-3 text-slate-600 max-w-2xl mx-auto text-xs sm:text-sm md:text-base leading-relaxed px-2"
           >
             Illustrative examples of what we build. Each can be tailored to your data,
             tools and compliance requirements during a scoped engagement.
@@ -162,7 +162,7 @@ export default function ProjectsSection() {
           viewport={{ once: true }}
           className="relative mx-auto max-w-5xl"
         >
-          <div className="h-[440px] sm:h-[460px] md:h-[480px] w-full">
+          <div className="h-[420px] sm:h-[450px] md:h-[480px] w-full">
             <PerspectiveCarousel
               items={demos}
               loop
@@ -183,10 +183,10 @@ export default function ProjectsSection() {
           />
         </motion.div>
 
-        <div className="mt-8 sm:mt-10 text-center">
+        <div className="mt-8 sm:mt-10 text-center px-4">
           <Link
             href="/#contact"
-            className="group relative inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-[#0f46b8] via-[#1e63e9] to-[#06b6d4] transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-[0_12px_32px_rgba(30,99,233,0.45)] hover:scale-[1.02] active:scale-[0.98] border border-white/25 overflow-hidden text-sm sm:text-base cursor-pointer"
+            className="group relative inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-[#0f46b8] via-[#1e63e9] to-[#06b6d4] transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-[0_12px_32px_rgba(30,99,233,0.45)] hover:scale-[1.02] active:scale-[0.98] border border-white/25 overflow-hidden text-sm sm:text-base cursor-pointer"
           >
             <span className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/70 to-transparent pointer-events-none" />
             <span className="absolute -top-[50%] -bottom-[50%] -left-[100%] w-[60%] bg-gradient-to-r from-transparent via-white/55 to-transparent -skew-x-[25deg] transition-all duration-700 ease-out group-hover:left-[170%] pointer-events-none" />

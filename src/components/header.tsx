@@ -50,7 +50,7 @@ export default function Header() {
                   alt="Intevoris AI Solutions"
                   height={72}
                   width={160}
-                  className="object-contain h-12 w-auto"
+                  className="object-contain h-10 sm:h-12 w-auto"
                   priority
                 />
               </Link>

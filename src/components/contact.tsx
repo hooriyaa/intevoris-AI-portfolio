@@ -1,4 +1,4 @@
-// modified- clean minimal classy contact section with no clutter
+// modified- responsive clean minimal classy contact section
 "use client"
 
 import { useState } from "react"
@@ -104,7 +104,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative pt-16 md:pt-20 pb-20 md:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-slate-50 to-white overflow-hidden"
+      className="relative pt-14 sm:pt-16 md:pt-20 pb-16 sm:pb-20 md:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-slate-50 to-white overflow-hidden"
     >
       {/* Background dot pattern */}
       <div className="absolute inset-0 opacity-[0.14] pointer-events-none" aria-hidden>
@@ -119,12 +119,12 @@ export default function ContactSection() {
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header - Clean & Minimal */}
-        <div className="text-center mb-10 md:mb-14">
+        <div className="text-center mb-8 sm:mb-10 md:mb-14">
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
-            className="flex items-center justify-center gap-2 mb-3"
+            className="flex items-center justify-center gap-2 mb-2.5 sm:mb-3"
           >
             <span className="w-2 h-2 rounded-full bg-[#1e63e9]" />
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
@@ -137,7 +137,7 @@ export default function ContactSection() {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.06 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0b1f3a] tracking-tight"
+            className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-[#0b1f3a] tracking-tight"
           >
             Let&apos;s start a{" "}
             <span className="bg-gradient-to-r from-[#0f46b8] via-[#1e63e9] to-[#037899] bg-clip-text text-transparent">
@@ -149,20 +149,20 @@ export default function ContactSection() {
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.12 }}
-            className="mt-3 text-slate-600 max-w-xl mx-auto text-base sm:text-lg"
+            className="mt-2.5 sm:mt-3 text-slate-600 max-w-xl mx-auto text-sm sm:text-base md:text-lg px-2"
           >
             Have a project or workflow in mind? Reach out and we&apos;ll get back to you within 24 hours.
           </motion.p>
         </div>
 
         {/* 2-Column Clean Layout */}
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-start">
           {/* Left Column: Direct Info (5 Cols) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-5 rounded-3xl bg-[#0b1f3a] text-white p-7 sm:p-9 border border-slate-800 shadow-xl relative overflow-hidden"
+            className="lg:col-span-5 rounded-2xl sm:rounded-3xl bg-[#0b1f3a] text-white p-5 sm:p-7 md:p-9 border border-slate-800 shadow-xl relative overflow-hidden"
           >
             {/* Subtle glow */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/15 rounded-full blur-2xl pointer-events-none" />
@@ -178,18 +178,18 @@ export default function ContactSection() {
               </div>
 
               {/* Contact details */}
-              <div className="space-y-3.5">
+              <div className="space-y-3 sm:space-y-3.5">
                 {/* Email with copy */}
-                <div className="flex items-center justify-between p-3.5 rounded-2xl bg-white/[0.06] border border-white/10 hover:border-blue-400/30 transition-all">
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#1e63e9] to-[#06b6d4] flex items-center justify-center text-white">
+                <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-2 p-3 sm:p-3.5 rounded-2xl bg-white/[0.06] border border-white/10 hover:border-blue-400/30 transition-all">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-[#1e63e9] to-[#06b6d4] flex items-center justify-center text-white shrink-0">
                       <Mail className="w-4 h-4" />
                     </div>
-                    <div>
-                      <p className="text-[11px] text-slate-400">Email us</p>
+                    <div className="min-w-0">
+                      <p className="text-[10px] sm:text-[11px] text-slate-400">Email us</p>
                       <a
                         href="mailto:hello@intevoris.ai"
-                        className="text-sm font-semibold text-white hover:text-cyan-300 transition-colors"
+                        className="text-xs sm:text-sm font-semibold text-white hover:text-cyan-300 transition-colors truncate block"
                       >
                         hello@intevoris.ai
                       </a>
@@ -198,7 +198,7 @@ export default function ContactSection() {
                   <button
                     type="button"
                     onClick={handleCopyEmail}
-                    className="px-2.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-slate-200 transition-colors cursor-pointer text-xs flex items-center gap-1.5"
+                    className="ml-auto px-2.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-slate-200 transition-colors cursor-pointer text-xs flex items-center gap-1.5 shrink-0"
                     title="Copy email"
                   >
                     {copiedEmail ? (
@@ -216,30 +216,30 @@ export default function ContactSection() {
                 </div>
 
                 {/* Turnaround */}
-                <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.06] border border-white/10">
-                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#1e63e9] to-[#06b6d4] flex items-center justify-center text-white">
+                <div className="flex items-center gap-3 p-3 sm:p-3.5 rounded-2xl bg-white/[0.06] border border-white/10">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-[#1e63e9] to-[#06b6d4] flex items-center justify-center text-white shrink-0">
                     <Clock className="w-4 h-4" />
                   </div>
                   <div>
-                    <p className="text-[11px] text-slate-400">Response time</p>
-                    <p className="text-sm font-semibold text-white">Within 24 hours</p>
+                    <p className="text-[10px] sm:text-[11px] text-slate-400">Response time</p>
+                    <p className="text-xs sm:text-sm font-semibold text-white">Within 24 hours</p>
                   </div>
                 </div>
 
                 {/* Consultation */}
-                <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.06] border border-white/10">
-                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#1e63e9] to-[#06b6d4] flex items-center justify-center text-white">
+                <div className="flex items-center gap-3 p-3 sm:p-3.5 rounded-2xl bg-white/[0.06] border border-white/10">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-[#1e63e9] to-[#06b6d4] flex items-center justify-center text-white shrink-0">
                     <Calendar className="w-4 h-4" />
                   </div>
                   <div>
-                    <p className="text-[11px] text-slate-400">Consultation</p>
-                    <p className="text-sm font-semibold text-white">Free 30-min discovery call</p>
+                    <p className="text-[10px] sm:text-[11px] text-slate-400">Consultation</p>
+                    <p className="text-xs sm:text-sm font-semibold text-white">Free 30-min discovery call</p>
                   </div>
                 </div>
               </div>
 
               {/* Status pill */}
-              <div className="pt-2">
+              <div className="pt-1 sm:pt-2">
                 <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
                   <span>Available for new projects</span>
@@ -253,7 +253,7 @@ export default function ContactSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.08 }}
-            className="lg:col-span-7 rounded-3xl bg-white border border-slate-200/90 shadow-xl p-7 sm:p-9 relative"
+            className="lg:col-span-7 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 shadow-xl p-5 sm:p-7 md:p-9 relative"
           >
             <AnimatePresence mode="wait">
               {submitStatus === "success" ? (
