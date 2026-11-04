@@ -72,11 +72,11 @@ export default function Footer() {
             className="lg:col-span-1"
           >
             <Image
-              src="/logo.png"
+              src="/new-Logo.png"
               alt="Intevoris AI Solutions"
-              width={180}
-              height={56}
-              className="h-12 w-auto object-contain mb-5"
+              width={200}
+              height={70}
+              className="h-14 w-auto object-contain mb-5"
             />
             <p className="text-slate-600 mb-6 leading-relaxed text-sm">
               Practical AI solutions that simplify work, integrate with your stack and

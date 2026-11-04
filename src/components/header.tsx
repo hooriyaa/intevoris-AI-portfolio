@@ -41,16 +41,16 @@ export default function Header() {
             : "bg-white/70 backdrop-blur-sm"
         }`}
       >
-        <div className="container mx-auto px-4 sm:px-6 py-3">
+        <div className="container mx-auto px-4 sm:px-6 py-2.5 sm:py-3">
           <div className="flex items-center justify-between">
             <motion.div whileHover={{ scale: 1.03 }} className="flex items-center">
               <Link href="/" onClick={closeMobileMenu} aria-label="Intevoris AI home">
                 <Image
-                  src="/logo.png"
+                  src="/new-Logo.png"
                   alt="Intevoris AI Solutions"
-                  height={72}
-                  width={160}
-                  className="object-contain h-10 sm:h-12 w-auto"
+                  height={90}
+                  width={220}
+                  className="object-contain h-12 sm:h-14 md:h-16 w-auto"
                   priority
                 />
               </Link>
@@ -132,11 +132,11 @@ export default function Header() {
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between p-6 border-b border-slate-200">
                   <Image
-                    src="/logo.png"
+                    src="/new-Logo.png"
                     alt="Intevoris AI Solutions"
-                    height={48}
-                    width={120}
-                    className="object-contain h-10 w-auto"
+                    height={60}
+                    width={150}
+                    className="object-contain h-12 w-auto"
                   />
                   <button
                     onClick={closeMobileMenu}
