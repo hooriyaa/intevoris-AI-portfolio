@@ -30,12 +30,12 @@ export default function Footer() {
   ];
 
   const services = [
-    "AI Strategy & Consulting",
-    "Intelligent Automation",
-    "AI Agents & Assistants",
-    "Systems Integration",
-    "Data & Analytics",
-    "Governance & Support",
+    "Workflow Automation",
+    "Robotic Process Automation",
+    "Data & Business Intelligence",
+    "Reconciliation & Data Validation",
+    "AI Assistants & Document AI",
+    "Websites & E-Commerce",
   ];
 
   return (

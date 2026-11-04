@@ -1,4 +1,4 @@
-// modified- responsive solutions section with optimized vertical spacing
+// modified- solutions demos aligned with official company profile
 "use client"
 
 import { useEffect, useRef } from "react"
@@ -7,14 +7,14 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Link from "next/link"
 import {
-  FaFileAlt,
-  FaComments,
-  FaChartBar,
   FaClipboardList,
-  FaSearchDollar,
-  FaUserCheck,
-  FaEnvelopeOpenText,
-  FaCogs,
+  FaRobot,
+  FaChartBar,
+  FaBalanceScale,
+  FaComments,
+  FaFileInvoice,
+  FaShoppingCart,
+  FaExchangeAlt,
 } from "react-icons/fa"
 import PerspectiveCarousel, {
   type PerspectiveCarouselItem,
@@ -26,60 +26,60 @@ if (typeof window !== "undefined") {
 
 const demos: PerspectiveCarouselItem[] = [
   {
-    title: "Document Intelligence Demo",
+    title: "Workflow Automation",
     summary:
-      "Upload contracts or reports and get structured summaries, key clauses and action items — grounded in your own documents.",
-    tags: ["RAG", "Summarisation", "QA"],
-    icon: <FaFileAlt className="text-white text-xl" aria-hidden />,
-  },
-  {
-    title: "Support Copilot Demo",
-    summary:
-      "A supervised assistant that drafts replies from your knowledge base, tags urgency and hands complex cases to humans.",
-    tags: ["Agents", "Helpdesk", "Guardrails"],
-    icon: <FaComments className="text-white text-xl" aria-hidden />,
-  },
-  {
-    title: "Ops Insights Demo",
-    summary:
-      "Live dashboards that merge data from multiple systems to flag bottlenecks, SLA risks and weekly performance trends.",
-    tags: ["Analytics", "Dashboards", "Alerts"],
-    icon: <FaChartBar className="text-white text-xl" aria-hidden />,
-  },
-  {
-    title: "Workflow Automation Demo",
-    summary:
-      "Approvals, data sync and status updates that move automatically between tools — with full audit trails and human checkpoints.",
-    tags: ["Automation", "Integrations", "Audit"],
+      "Capture enquiries, assign owners, trigger approvals, and follow up on missing information across connected business tools.",
+    tags: ["Workflows", "Onboarding", "Approvals"],
     icon: <FaClipboardList className="text-white text-xl" aria-hidden />,
   },
   {
-    title: "Lead Qualification Demo",
+    title: "Robotic Process Automation",
     summary:
-      "Scores and routes inbound leads from forms, email and CRM events so sales only sees opportunities worth a call.",
-    tags: ["Scoring", "Routing", "CRM"],
-    icon: <FaSearchDollar className="text-white text-xl" aria-hidden />,
+      "Software robots for repetitive computer tasks — routine record updates, portal report downloads, and file handling with human review.",
+    tags: ["RPA", "Software Bots", "Audit Logs"],
+    icon: <FaRobot className="text-white text-xl" aria-hidden />,
   },
   {
-    title: "Onboarding Assistant Demo",
+    title: "Business Intelligence Dashboards",
     summary:
-      "Guides new customers through setup checklists, collects required documents and nudges incomplete steps automatically.",
-    tags: ["Onboarding", "Checklists", "Email"],
-    icon: <FaUserCheck className="text-white text-xl" aria-hidden />,
+      "Clear visibility into business performance — track sales, expenses, orders and service KPIs consolidated from your tools.",
+    tags: ["Dashboards", "Reporting", "Analytics"],
+    icon: <FaChartBar className="text-white text-xl" aria-hidden />,
   },
   {
-    title: "Inbox Triage Demo",
+    title: "Reconciliation & Data Validation",
     summary:
-      "Classifies incoming requests, drafts first replies and escalates urgent items with full context attached.",
-    tags: ["Triage", "NLP", "Priority"],
-    icon: <FaEnvelopeOpenText className="text-white text-xl" aria-hidden />,
+      "Match invoices with bank records and compare e-commerce orders with payment gateways and courier settlement files.",
+    tags: ["Reconciliation", "Settlements", "Validation"],
+    icon: <FaBalanceScale className="text-white text-xl" aria-hidden />,
   },
   {
-    title: "Process Monitor Demo",
+    title: "AI Customer Support Assistants",
     summary:
-      "Watches key workflows end to end, flags failures and SLA breaches, and logs every automated decision for review.",
-    tags: ["Monitoring", "SLA", "Logging"],
-    icon: <FaCogs className="text-white text-xl" aria-hidden />,
+      "Answer customer questions accurately using approved business information, collect initial details, and route smoothly to team members.",
+    tags: ["AI Copilot", "Support", "Handover"],
+    icon: <FaComments className="text-white text-xl" aria-hidden />,
+  },
+  {
+    title: "Document Information Extraction",
+    summary:
+      "Read selected fields automatically from invoices, receipts, and intake forms with validation before entering your database.",
+    tags: ["OCR", "Field Extraction", "Invoices"],
+    icon: <FaFileInvoice className="text-white text-xl" aria-hidden />,
+  },
+  {
+    title: "Websites & Connected E-Commerce",
+    summary:
+      "Company websites and online product catalogues linked directly with order journeys, courier notifications, and live reporting.",
+    tags: ["E-Commerce", "Websites", "Sync"],
+    icon: <FaShoppingCart className="text-white text-xl" aria-hidden />,
+  },
+  {
+    title: "Connected App Integrations",
+    summary:
+      "Seamlessly transfer data between online forms, spreadsheets, CRMs, and core ERP systems with zero manual copying.",
+    tags: ["Integration", "APIs", "Data Sync"],
+    icon: <FaExchangeAlt className="text-white text-xl" aria-hidden />,
   },
 ]
 

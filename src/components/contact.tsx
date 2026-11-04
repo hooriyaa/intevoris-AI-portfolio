@@ -17,10 +17,12 @@ import {
 } from "lucide-react"
 
 const SERVICES = [
-  "Automation",
-  "AI Agents",
-  "Integrations",
-  "Consulting",
+  "Workflow Automation",
+  "Robotic Process Automation",
+  "Data & BI Dashboards",
+  "Reconciliation & Validation",
+  "AI Assistants & Document AI",
+  "Websites & E-Commerce",
 ]
 
 const formSchema = z.object({
@@ -151,7 +153,7 @@ export default function ContactSection() {
             transition={{ duration: 0.45, delay: 0.12 }}
             className="mt-2.5 sm:mt-3 text-slate-600 max-w-xl mx-auto text-sm sm:text-base md:text-lg px-2"
           >
-            Have a project or workflow in mind? Reach out and we&apos;ll get back to you within 24 hours.
+            A practical conversation starts with one business challenge. Reach out and our team will get back to you within 24 hours.
           </motion.p>
         </div>
 

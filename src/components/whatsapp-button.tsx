@@ -1,4 +1,4 @@
-// modified- floating whatsapp button component fixed to viewport
+// modified- floating whatsapp button with increased icon size
 "use client"
 
 import { motion } from "framer-motion"
@@ -17,7 +17,7 @@ export default function WhatsAppButton() {
         href="https://wa.me/?text=Hi%20Intevoris%20AI,%20I'd%20like%20to%20inquire%20about%20your%20services."
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#25D366] text-white shadow-2xl shadow-emerald-600/40 hover:shadow-[0_14px_32px_rgba(37,211,102,0.6)] hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer border-2 border-white/40 overflow-hidden"
+        className="group relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] text-white shadow-2xl shadow-emerald-600/40 hover:shadow-[0_14px_32px_rgba(37,211,102,0.6)] hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer border-2 border-white/40 overflow-hidden"
         title="Chat on WhatsApp"
         aria-label="Chat with us on WhatsApp"
       >
@@ -28,12 +28,12 @@ export default function WhatsAppButton() {
         <span className="absolute -top-[50%] -bottom-[50%] -left-[100%] w-[60%] bg-gradient-to-r from-transparent via-white/60 to-transparent -skew-x-[25deg] transition-all duration-700 ease-out group-hover:left-[170%] pointer-events-none" />
 
         {/* Online green indicator on top right */}
-        <span className="absolute top-2 right-2 flex h-2.5 w-2.5 pointer-events-none">
+        <span className="absolute top-2.5 right-2.5 flex h-2.5 w-2.5 pointer-events-none">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-90" />
           <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white shadow-sm" />
         </span>
 
-        <FaWhatsapp className="w-6 h-6 sm:w-7 sm:h-7 text-white transition-transform duration-300 group-hover:scale-110" />
+        <FaWhatsapp className="w-7 h-7 sm:w-8 sm:h-8 text-white transition-transform duration-300 group-hover:scale-110" />
       </a>
     </motion.aside>
   )

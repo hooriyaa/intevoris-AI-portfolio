@@ -931,21 +931,19 @@ export function BooksShowcase({
       }
 
       if (SLOTS.portrait) {
-        const el = dpRef.current;
-        const panelH = el && el.offsetHeight > 40 ? el.offsetHeight : dims.h * 0.44;
-        const gap = dims.h * 0.035,
-          navB = dims.h * 0.1;
-        const freeTop = navB;
-        const freeBot = Math.max(dims.h - panelH - gap, freeTop + 140);
+        const panelH = 160;
+        const freeTop = 15;
+        const freeBot = Math.max(dims.h - panelH - 30, freeTop + 140);
         const midPx = (freeTop + freeBot) / 2;
         const T13 = 0.23087,
           camZp = 9.9,
           zw = 0.8 * fit,
-          rootY = -(1 - fit) * 0.28;
+          rootY = -(1 - fit) * 0.12;
         const yw = 0.1 + (1 - (2 * midPx) / dims.h) * T13 * (camZp - zw);
-        const availW = (((freeBot - freeTop) * 0.92) / dims.h) * 2 * T13 * (camZp - zw);
-        const s = clamp(availW / fit / 2.65, 0.42, 0.92);
-        SLOTS.detail = { p: [0, (yw - rootY) / fit, 0.8], r: [-0.02, -0.4, 0.06], s };
+        const availW = (((freeBot - freeTop) * 0.95) / dims.h) * 2 * T13 * (camZp - zw);
+        const s = clamp(availW / fit / 2.3, 0.52, 0.86);
+        // Harmonious position above text without excess void
+        SLOTS.detail = { p: [0, ((yw - rootY) / fit) + 0.15, 0.8], r: [-0.02, -0.4, 0.06], s };
       } else {
         SLOTS.detail = { p: [-1.68, 0.0, 0.85], r: [0.02, -0.44, 0.08], s: 1.06 };
       }
@@ -1828,61 +1826,61 @@ export function BooksShowcase({
         <div
           ref={dpRef}
           aria-live="polite"
-          className={`absolute right-[7%] top-1/2 z-[15] w-[min(560px,44%)] -translate-y-1/2 pointer-events-none @max-[760px]:right-auto @max-[760px]:left-1/2 @max-[760px]:top-auto @max-[760px]:bottom-[3.5%] @max-[760px]:w-[min(560px,92cqw)] @max-[760px]:-translate-x-1/2 @max-[760px]:translate-y-0 ${
+          className={`absolute right-[7%] top-1/2 z-[15] w-[min(560px,44%)] -translate-y-1/2 pointer-events-none @max-[760px]:right-auto @max-[760px]:left-1/2 @max-[760px]:top-auto @max-[760px]:bottom-[22px] @max-[760px]:w-[min(520px,94cqw)] @max-[760px]:-translate-x-1/2 @max-[760px]:translate-y-0 ${
             panelVisible ? 'visible' : 'invisible delay-[500ms]'
           }`}
         >
-          <h1 className={`m-0 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 text-[clamp(36px,4.5cqw,64px)] font-extrabold leading-[1.08] tracking-tight @max-[760px]:text-[clamp(28px,7.5cqw,40px)] ${dpChild(50)}`}>
+          <h1 className={`m-0 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 text-[clamp(36px,4.5cqw,64px)] font-extrabold leading-[1.08] tracking-tight @max-[760px]:text-[clamp(19px,4.8cqw,24px)] @max-[760px]:leading-tight ${dpChild(50)}`}>
             {selectedCfg?.title}
           </h1>
-          <p className={`mt-[18px] max-w-[54ch] text-slate-300 text-[clamp(15px,1.15cqw,17px)] leading-[1.65] @max-[760px]:mt-3 @max-[760px]:line-clamp-4 @max-[760px]:text-[14px] ${dpChild(130)}`}>
+          <p className={`mt-[18px] max-w-[54ch] text-slate-300 text-[clamp(15px,1.15cqw,17px)] leading-[1.65] @max-[760px]:mt-1.5 @max-[760px]:line-clamp-2 @max-[760px]:text-[12.5px] @max-[760px]:leading-relaxed ${dpChild(130)}`}>
             {selectedCfg?.desc}
           </p>
-          <div className={`mt-[22px] flex items-center gap-[16px] @max-[760px]:mt-[14px] ${dpChild(210)}`}>
-            <div className="flex gap-[4px]">
+          <div className={`mt-[22px] flex items-center gap-[16px] @max-[760px]:mt-1.5 @max-[760px]:gap-2 ${dpChild(210)}`}>
+            <div className="flex gap-[3px]">
               {[0, 1, 2, 3, 4].map((i) => (
                 <svg
                   key={i}
                   viewBox="0 0 24 24"
-                  className={`h-[20px] w-[20px] fill-amber-400 ${i < (selectedCfg?.stars ?? 5) ? '' : 'opacity-25'}`}
+                  className={`h-[18px] w-[18px] @max-[760px]:h-[14px] @max-[760px]:w-[14px] fill-amber-400 ${i < (selectedCfg?.stars ?? 5) ? '' : 'opacity-25'}`}
                 >
                   <path d="M12 2.6l2.8 6 6.6.6-5 4.4 1.5 6.5L12 16.7 6.1 20.1l1.5-6.5-5-4.4 6.6-.6z" />
                 </svg>
               ))}
             </div>
-            <div className="h-4 w-px bg-slate-600" />
-            <div className="text-[15px] font-semibold tracking-wide text-cyan-300 uppercase">
+            <div className="h-3.5 w-px bg-slate-600" />
+            <div className="text-[14px] @max-[760px]:text-[11px] font-semibold tracking-wide text-cyan-300 uppercase">
               {selectedCfg?.category ?? 'Enterprise Solution'}
             </div>
-            <div className="ml-auto text-[14px] font-medium text-slate-400">
+            <div className="ml-auto text-[13px] @max-[760px]:text-[11px] font-medium text-slate-400">
               {selectedCfg?.year ?? 'Production Ready'}
             </div>
           </div>
-          <div className={`mt-[20px] border-t border-slate-700/60 @max-[760px]:mt-3 ${dpChild(270)}`} />
+          <div className={`mt-[16px] border-t border-slate-700/60 @max-[760px]:mt-2 ${dpChild(270)}`} />
           <div
-            className={`pointer-events-auto mt-6 inline-flex items-center gap-[12px] rounded-full bg-slate-900/90 p-[8px] shadow-[0_24px_60px_rgba(0,0,0,0.45)] border border-slate-700/80 backdrop-blur-md @max-[760px]:mt-[16px] @max-[760px]:flex-wrap @max-[760px]:rounded-[22px] ${dpChild(330)}`}
+            className={`pointer-events-auto mt-5 inline-flex items-center gap-[10px] rounded-full bg-slate-900/90 p-[6px] sm:p-[8px] shadow-[0_24px_60px_rgba(0,0,0,0.45)] border border-slate-700/80 backdrop-blur-md @max-[760px]:mt-2 @max-[760px]:gap-2 @max-[760px]:w-full @max-[760px]:justify-center @max-[760px]:rounded-xl ${dpChild(330)}`}
           >
             <Link
               href={selectedCfg?.primaryActionHref ?? '/#contact'}
-              className="group relative inline-flex h-[48px] items-center gap-[8px] rounded-full bg-gradient-to-r from-[#0f46b8] via-[#1e63e9] to-[#06b6d4] px-[22px] text-[14.5px] font-semibold text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_8px_24px_rgba(30,99,233,0.45)] border border-white/20 overflow-hidden cursor-pointer @max-[760px]:h-10 @max-[760px]:px-4 @max-[760px]:text-[13px]"
+              className="group relative inline-flex h-[44px] items-center gap-[8px] rounded-full bg-gradient-to-r from-[#0f46b8] via-[#1e63e9] to-[#06b6d4] px-[20px] text-[14px] font-semibold text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_8px_24px_rgba(30,99,233,0.45)] border border-white/20 overflow-hidden cursor-pointer @max-[760px]:h-8 @max-[760px]:px-3.5 @max-[760px]:text-[11.5px] @max-[760px]:rounded-lg"
             >
               <span className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/70 to-transparent pointer-events-none" />
               <span className="absolute -top-[50%] -bottom-[50%] -left-[100%] w-[60%] bg-gradient-to-r from-transparent via-white/55 to-transparent -skew-x-[25deg] transition-all duration-700 ease-out group-hover:left-[170%] pointer-events-none" />
-              <span className="relative z-10 flex items-center gap-2">
+              <span className="relative z-10 flex items-center gap-1.5">
                 <span>{selectedCfg?.primaryActionLabel ?? 'Start an Enquiry'}</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </span>
             </Link>
             <Link
               href={selectedCfg?.secondaryActionHref ?? '/#process'}
-              className="inline-flex h-[48px] items-center gap-[8px] rounded-full bg-white/10 border border-white/20 px-[20px] text-[14.5px] font-semibold text-white transition-[transform,background-color] duration-[220ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.04] hover:bg-white/20 cursor-pointer @max-[760px]:h-10 @max-[760px]:px-4 @max-[760px]:text-[13px]"
+              className="inline-flex h-[44px] items-center gap-[6px] rounded-full bg-white/10 border border-white/20 px-[16px] text-[14px] font-semibold text-white transition-[transform,background-color] duration-[220ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.04] hover:bg-white/20 cursor-pointer @max-[760px]:h-8 @max-[760px]:px-3 @max-[760px]:text-[11.5px] @max-[760px]:rounded-lg"
             >
               <span>{selectedCfg?.secondaryActionLabel ?? 'How We Work'}</span>
             </Link>
             <span
-              className="inline-flex h-[48px] px-3.5 items-center justify-center rounded-full bg-blue-950/60 text-xs font-semibold text-cyan-300 border border-cyan-500/30 @max-[760px]:h-8"
+              className="inline-flex h-[44px] px-3 items-center justify-center rounded-full bg-blue-950/60 text-xs font-semibold text-cyan-300 border border-cyan-500/30 @max-[760px]:hidden"
             >
               {selectedCfg?.badge ?? 'Fully Governed'}
             </span>

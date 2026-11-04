@@ -1,4 +1,4 @@
-// modified- responsive process section
+// modified- restored original working process
 "use client"
 
 import { motion } from "framer-motion"

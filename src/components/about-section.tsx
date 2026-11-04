@@ -1,4 +1,4 @@
-// modified- responsive about section
+// modified- about section integrated with official company profile
 "use client"
 
 import { motion } from "framer-motion"
@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Link from "next/link"
-import { FaLightbulb, FaEye, FaHeart } from "react-icons/fa"
+import { FaLightbulb, FaEye, FaLayerGroup } from "react-icons/fa"
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger)
@@ -15,18 +15,21 @@ if (typeof window !== "undefined") {
 const pillars = [
   {
     icon: FaLightbulb,
-    title: "Mission",
-    text: "Deliver practical AI that simplifies everyday work, integrates cleanly with existing systems, and creates measurable impact for the teams that use it.",
+    title: "Our Mission",
+    subtitle: "Turn technology into measurable progress",
+    text: "Practical AI, automation and digital solutions that reduce repetitive work, improve efficiency and create better customer experiences.",
   },
   {
     icon: FaEye,
-    title: "Vision",
-    text: "A future where every organisation runs on intelligent workflows — people focused on strategy and creativity while AI handles the repetitive load.",
+    title: "Our Vision",
+    subtitle: "A trusted partner for digital transformation",
+    text: "A future where organizations of every size use intelligent, connected systems to adapt, compete and grow.",
   },
   {
-    icon: FaHeart,
-    title: "Values",
-    text: "Clarity over hype, secure by design, and partnerships built on transparency — we only ship solutions we would run ourselves.",
+    icon: FaLayerGroup,
+    title: "Our Portfolio",
+    subtitle: "Three core capability pillars",
+    text: "Automation (workflows & software robots), Data & Business Intelligence (dashboards & reconciliation), and Digital Experiences (websites & AI assistants).",
   },
 ]
 
@@ -76,21 +79,19 @@ export default function AboutSection() {
           <div className="flex items-center justify-center gap-3 mb-3 sm:mb-4">
             <div className="w-2 h-2 rounded-full bg-[#1e63e9]" />
             <span className="text-xs md:text-sm font-medium tracking-[0.2em] text-slate-500 uppercase">
-              About Us
+              Who We Are
             </span>
             <div className="w-2 h-2 rounded-full bg-[#06b6d4]" />
           </div>
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-[#0b1f3a] tracking-tight">
-            Built for teams ready to{" "}
+            Technology that fits the{" "}
             <span className="bg-gradient-to-r from-[#1e63e9] to-[#06b6d4] bg-clip-text text-transparent">
-              work smarter
+              way you work
             </span>
           </h2>
           <p className="mt-4 sm:mt-5 text-slate-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
-            Intevoris AI Solutions partners with organisations to design, integrate and
-            operate AI systems that fit real workflows — not demos that look good in a
-            slide deck. From first discovery workshop to production support, we stay
-            accountable for outcomes.
+            We help businesses simplify operations, strengthen their digital presence
+            and grow through intelligent automation and practical AI systems.
           </p>
         </div>
 
@@ -107,7 +108,12 @@ export default function AboutSection() {
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1e63e9] to-[#06b6d4] flex items-center justify-center mb-4 sm:mb-5 shadow-lg shadow-blue-500/20">
                 <item.icon className="text-white text-lg" aria-hidden />
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-[#0b1f3a] mb-2 sm:mb-3">{item.title}</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-[#0b1f3a] mb-1">{item.title}</h3>
+              {item.subtitle && (
+                <div className="text-xs font-semibold text-[#1e63e9] uppercase tracking-wide mb-2.5">
+                  {item.subtitle}
+                </div>
+              )}
               <p className="text-slate-600 text-sm leading-relaxed">{item.text}</p>
             </motion.div>
           ))}
