@@ -45,47 +45,48 @@ function drawServiceCover(
 
   // Double Border with corner notches
   x.strokeStyle = accentColor;
-  x.lineWidth = 2.5;
-  x.strokeRect(55, 55, w - 110, h - 110);
+  x.lineWidth = 3.5;
+  x.strokeRect(70, 70, w - 140, h - 140);
 
-  x.strokeStyle = "rgba(255, 255, 255, 0.15)";
-  x.lineWidth = 1;
-  x.strokeRect(66, 66, w - 132, h - 132);
+  x.strokeStyle = "rgba(255, 255, 255, 0.2)";
+  x.lineWidth = 1.5;
+  x.strokeRect(85, 85, w - 170, h - 170);
 
-  // Top branding badge - High contrast & crystal clear
+  // Top branding badge - High contrast & ultra-sharp
   x.fillStyle = "#38bdf8";
-  x.font = "bold 28px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+  x.font = "bold 38px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
   x.textAlign = "center";
-  x.fillText("INTEVORIS AI SOLUTIONS", w / 2, 135);
+  x.fillText("INTEVORIS AI SOLUTIONS", w / 2, 200);
 
-  x.fillStyle = "rgba(255, 255, 255, 0.9)";
-  x.font = "700 20px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
-  x.fillText("CAPABILITY BLUEPRINT", w / 2, 170);
+  x.fillStyle = "#ffffff";
+  x.font = "700 26px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+  x.fillText("CAPABILITY BLUEPRINT", w / 2, 250);
 
   // Decorative emblem / logo ring in center-top
+  const emblemY = h * 0.32;
   x.beginPath();
-  x.arc(w / 2, h * 0.27, 44, 0, Math.PI * 2);
+  x.arc(w / 2, emblemY, 60, 0, Math.PI * 2);
   x.strokeStyle = accentColor;
-  x.lineWidth = 2.5;
+  x.lineWidth = 3;
   x.stroke();
 
-  x.fillStyle = "rgba(6, 182, 212, 0.2)";
+  x.fillStyle = "rgba(6, 182, 212, 0.25)";
   x.fill();
 
   x.beginPath();
-  x.arc(w / 2, h * 0.27, 24, 0, Math.PI * 2);
+  x.arc(w / 2, emblemY, 30, 0, Math.PI * 2);
   x.fillStyle = "#ffffff";
   x.fill();
 
-  // Service Title - Ultra-crisp high-contrast bold typography
+  // Service Title - Ultra-bold high-impact typography (110px)
   x.fillStyle = "#ffffff";
-  x.font = "800 68px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+  x.font = "900 110px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
   const words = title.split(" ");
   let line = "";
   const lines: string[] = [];
   words.forEach((word) => {
     const test = line ? line + " " + word : word;
-    if (x.measureText(test).width > w * 0.76 && line) {
+    if (x.measureText(test).width > w * 0.78 && line) {
       lines.push(line);
       line = word;
     } else {
@@ -94,29 +95,29 @@ function drawServiceCover(
   });
   if (line) lines.push(line);
 
-  const startY = h * 0.54 - ((lines.length - 1) * 82) / 2;
-  x.shadowColor = "rgba(0, 0, 0, 0.5)";
-  x.shadowBlur = 10;
-  x.shadowOffsetY = 3;
-  lines.forEach((l, i) => x.fillText(l, w / 2, startY + i * 82));
+  const startY = h * 0.58 - ((lines.length - 1) * 130) / 2;
+  x.shadowColor = "rgba(0, 0, 0, 0.7)";
+  x.shadowBlur = 14;
+  x.shadowOffsetY = 4;
+  lines.forEach((l, i) => x.fillText(l, w / 2, startY + i * 130));
   x.shadowColor = "transparent";
   x.shadowBlur = 0;
   x.shadowOffsetY = 0;
 
   // Accent divider line
-  const divY = startY + lines.length * 82 + 14;
+  const divY = startY + lines.length * 130 + 10;
   x.fillStyle = "#38bdf8";
-  x.fillRect(w / 2 - 70, divY, 140, 4);
+  x.fillRect(w / 2 - 100, divY, 200, 6);
 
-  // Category & Metadata - Crisp Sky Cyan
+  // Category & Metadata - Crisp Sky Cyan (48px)
   x.fillStyle = "#67e8f9";
-  x.font = "600 34px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
-  x.fillText(category, w / 2, divY + 54);
+  x.font = "700 48px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+  x.fillText(category, w / 2, divY + 70);
 
-  // Bottom Security / Compliance Seal - Bright White
-  x.fillStyle = "rgba(255, 255, 255, 0.85)";
-  x.font = "700 22px monospace";
-  x.fillText("ENTERPRISE AI ARCHITECTURE · 2026", w / 2, h - 90);
+  // Bottom Security / Compliance Seal - Pure White (30px)
+  x.fillStyle = "#ffffff";
+  x.font = "bold 30px monospace";
+  x.fillText("ENTERPRISE AI ARCHITECTURE · 2026", w / 2, h - 140);
 }
 
 const serviceBooks: BookCfg[] = [

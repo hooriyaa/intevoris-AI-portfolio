@@ -299,9 +299,9 @@ export function BooksShowcase({
       const t = new THREE.CanvasTexture(c);
       t.colorSpace = THREE.SRGBColorSpace;
       t.anisotropy = ANISO;
-      t.minFilter = THREE.LinearMipmapLinearFilter;
+      t.minFilter = THREE.LinearFilter;
       t.magFilter = THREE.LinearFilter;
-      t.generateMipmaps = true;
+      t.generateMipmaps = false;
       t.needsUpdate = true;
       return t;
     }
@@ -1572,7 +1572,7 @@ export function BooksShowcase({
       const r = root!.getBoundingClientRect();
       dims.w = Math.max(1, Math.round(r.width));
       dims.h = Math.max(1, Math.round(r.height));
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, lowPowerDevice ? 1 : 1.25));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.setSize(dims.w, dims.h);
       camera.aspect = dims.w / dims.h;
       camera.updateProjectionMatrix();

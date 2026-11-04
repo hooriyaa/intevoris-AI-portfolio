@@ -1,4 +1,4 @@
-// modified- projects section with crystal shine CTA button
+// modified- reduced gap between heading and solutions cards carousel
 "use client"
 
 import { useEffect, useRef } from "react"
@@ -107,14 +107,14 @@ export default function ProjectsSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="solutions" className="py-20 md:py-28 px-4 md:px-6 bg-slate-50 overflow-hidden">
+    <section ref={sectionRef} id="solutions" className="py-16 md:py-24 px-4 md:px-6 bg-slate-50 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-5 sm:mb-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex items-center justify-center gap-3 mb-4"
+            className="flex items-center justify-center gap-3 mb-3"
           >
             <div className="w-2 h-2 bg-[#1e63e9] rounded-full" />
             <p className="text-slate-500 text-sm font-medium tracking-[0.2em] uppercase">
@@ -137,9 +137,9 @@ export default function ProjectsSection() {
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="mt-5 flex justify-center"
+            className="mt-3.5 flex justify-center"
           >
-            <span className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold px-4 py-2 rounded-full uppercase tracking-wide">
+            <span className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold px-3.5 py-1.5 rounded-full uppercase tracking-wide">
               <span className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-pulse" aria-hidden />
               Demonstration only — not live client deployments
             </span>
@@ -148,7 +148,7 @@ export default function ProjectsSection() {
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-4 text-slate-600 max-w-2xl mx-auto"
+            className="mt-3 text-slate-600 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed"
           >
             Illustrative examples of what we build. Each can be tailored to your data,
             tools and compliance requirements during a scoped engagement.
@@ -162,7 +162,7 @@ export default function ProjectsSection() {
           viewport={{ once: true }}
           className="relative mx-auto max-w-5xl"
         >
-          <div className="h-[520px] sm:h-[560px] md:h-[600px] w-full">
+          <div className="h-[440px] sm:h-[460px] md:h-[480px] w-full">
             <PerspectiveCarousel
               items={demos}
               loop
@@ -170,7 +170,9 @@ export default function ProjectsSection() {
               rotationStep={55}
               inactiveScale={0.82}
               className="h-full w-full"
-              viewportClassName="py-6"
+              viewportClassName="pt-2 pb-6"
+              trackClassName="top-[43%] sm:top-[44%]"
+              labelClassName="hidden"
             />
           </div>
 
@@ -181,7 +183,7 @@ export default function ProjectsSection() {
           />
         </motion.div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-8 sm:mt-10 text-center">
           <Link
             href="/#contact"
             className="group relative inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-[#0f46b8] via-[#1e63e9] to-[#06b6d4] transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-[0_12px_32px_rgba(30,99,233,0.45)] hover:scale-[1.02] active:scale-[0.98] border border-white/25 overflow-hidden text-sm sm:text-base cursor-pointer"

@@ -1,3 +1,4 @@
+// modified- perspective carousel with trackClassName support
 "use client"
 
 import * as React from "react"
@@ -28,6 +29,7 @@ export interface PerspectiveCarouselProps
   showControls?: boolean
   showDots?: boolean
   viewportClassName?: string
+  trackClassName?: string
   slideClassName?: string
   imageClassName?: string
   labelClassName?: string
@@ -56,6 +58,7 @@ export function PerspectiveCarousel({
   showControls = true,
   showDots = true,
   viewportClassName,
+  trackClassName,
   slideClassName,
   imageClassName,
   labelClassName,
@@ -121,7 +124,10 @@ export function PerspectiveCarousel({
         style={{ perspective: "1200px" }}
       >
         <motion.div
-          className="absolute left-1/2 top-1/2 flex w-fit -translate-y-1/2 items-center"
+          className={cn(
+            "absolute left-1/2 top-1/2 flex w-fit -translate-y-1/2 items-center",
+            trackClassName
+          )}
           animate={{ x: -(currentIndex * safeSlideWidth + safeSlideWidth / 2) }}
           transition={transition}
         >
