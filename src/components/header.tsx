@@ -1,4 +1,4 @@
-// modified- header with crystal shine get in touch button
+// modified- enlarged logo and tagline in header
 "use client"
 
 import { useState, useEffect } from "react"
@@ -41,16 +41,16 @@ export default function Header() {
             : "bg-white/70 backdrop-blur-sm"
         }`}
       >
-        <div className="container mx-auto px-4 sm:px-6 py-2.5 sm:py-3">
+        <div className="container mx-auto px-4 sm:px-6 py-2 sm:py-2.5">
           <div className="flex items-center justify-between">
             <motion.div whileHover={{ scale: 1.03 }} className="flex items-center">
               <Link href="/" onClick={closeMobileMenu} aria-label="Intevoris AI home">
                 <Image
                   src="/new-Logo.png"
                   alt="Intevoris AI Solutions"
-                  height={90}
-                  width={220}
-                  className="object-contain h-12 sm:h-14 md:h-16 w-auto"
+                  height={110}
+                  width={240}
+                  className="object-contain h-14 sm:h-16 md:h-20 w-auto"
                   priority
                 />
               </Link>
@@ -134,9 +134,9 @@ export default function Header() {
                   <Image
                     src="/new-Logo.png"
                     alt="Intevoris AI Solutions"
-                    height={60}
-                    width={150}
-                    className="object-contain h-12 w-auto"
+                    height={80}
+                    width={200}
+                    className="object-contain h-14 sm:h-16 w-auto"
                   />
                   <button
                     onClick={closeMobileMenu}
@@ -178,7 +178,7 @@ export default function Header() {
                     <span className="absolute -top-[50%] -bottom-[50%] -left-[100%] w-[60%] bg-gradient-to-r from-transparent via-white/55 to-transparent -skew-x-[25deg] transition-all duration-700 ease-out group-hover:left-[170%] pointer-events-none" />
                     <span className="relative z-10">Get in Touch</span>
                   </Link>
-                  <p className="mt-4 text-center text-slate-500 text-sm">
+                  <p className="mt-4 text-center font-medium text-slate-600 text-sm sm:text-base tracking-wide">
                     Simplify Work. Amplify Growth.
                   </p>
                 </div>

@@ -1,4 +1,4 @@
-// modified- responsive clean minimal classy contact section
+// modified- contact section with updated intevoris@gmail.com and mobile number
 "use client"
 
 import { useState } from "react"
@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   Mail,
+  Phone,
   Clock,
   Calendar,
   Check,
@@ -52,7 +53,7 @@ export default function ContactSection() {
   const handleCopyEmail = (e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    navigator.clipboard.writeText("hello@intevoris.ai")
+    navigator.clipboard.writeText("intevoris@gmail.com")
     setCopiedEmail(true)
     setTimeout(() => setCopiedEmail(false), 2200)
   }
@@ -87,7 +88,7 @@ export default function ContactSection() {
         } else {
           const errMsg =
             (Array.isArray(json.errors) && json.errors[0]?.message) ||
-            "Unable to send message. Please email hello@intevoris.ai."
+            "Unable to send message. Please email intevoris@gmail.com."
           setSubmitStatus("error")
           setServerMessage(errMsg)
         }
@@ -99,7 +100,7 @@ export default function ContactSection() {
       }
     } catch {
       setSubmitStatus("error")
-      setServerMessage("Network error. Please try again or email hello@intevoris.ai directly.")
+      setServerMessage("Network error. Please try again or email intevoris@gmail.com directly.")
     }
   }
 
@@ -190,10 +191,10 @@ export default function ContactSection() {
                     <div className="min-w-0">
                       <p className="text-[10px] sm:text-[11px] text-slate-400">Email us</p>
                       <a
-                        href="mailto:hello@intevoris.ai"
+                        href="mailto:intevoris@gmail.com"
                         className="text-xs sm:text-sm font-semibold text-white hover:text-cyan-300 transition-colors truncate block"
                       >
-                        hello@intevoris.ai
+                        intevoris@gmail.com
                       </a>
                     </div>
                   </div>
@@ -215,6 +216,35 @@ export default function ContactSection() {
                       </>
                     )}
                   </button>
+                </div>
+
+                {/* Call / WhatsApp */}
+                <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-2 p-3 sm:p-3.5 rounded-2xl bg-white/[0.06] border border-white/10 hover:border-emerald-400/30 transition-all">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-400 flex items-center justify-center text-white shrink-0">
+                      <Phone className="w-4 h-4" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-[10px] sm:text-[11px] text-slate-400">Call / WhatsApp</p>
+                      <a
+                        href="https://wa.me/923212589668?text=Hello%20Intevoris%20AI!%20I%20visited%20your%20website%20and%20would%20like%20to%20discuss%20an%20AI%20automation%20project%20for%20my%20business."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs sm:text-sm font-semibold text-white hover:text-emerald-300 transition-colors truncate block"
+                      >
+                        +92 321 2589668
+                      </a>
+                    </div>
+                  </div>
+                  <a
+                    href="https://wa.me/923212589668?text=Hello%20Intevoris%20AI!%20I%20visited%20your%20website%20and%20would%20like%20to%20discuss%20an%20AI%20automation%20project%20for%20my%20business."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ml-auto px-2.5 py-1.5 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 transition-colors cursor-pointer text-xs flex items-center gap-1.5 shrink-0"
+                    title="Chat on WhatsApp"
+                  >
+                    <span>WhatsApp</span>
+                  </a>
                 </div>
 
                 {/* Turnaround */}

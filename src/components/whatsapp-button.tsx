@@ -1,10 +1,16 @@
-// modified- floating whatsapp button with increased icon size
+// modified- floating whatsapp button with pre-filled message and mobile number
 "use client"
 
 import { motion } from "framer-motion"
 import { FaWhatsapp } from "react-icons/fa"
 
 export default function WhatsAppButton() {
+  const whatsappUrl =
+    "https://wa.me/923212589668?text=" +
+    encodeURIComponent(
+      "Hello Intevoris AI! I visited your website and would like to discuss an AI automation project for my business."
+    )
+
   return (
     <motion.aside
       initial={{ opacity: 0, scale: 0.7, y: 20 }}
@@ -14,7 +20,7 @@ export default function WhatsAppButton() {
       aria-label="WhatsApp quick chat"
     >
       <a
-        href="https://wa.me/?text=Hi%20Intevoris%20AI,%20I'd%20like%20to%20inquire%20about%20your%20services."
+        href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="group relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] text-white shadow-2xl shadow-emerald-600/40 hover:shadow-[0_14px_32px_rgba(37,211,102,0.6)] hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer border-2 border-white/40 overflow-hidden"

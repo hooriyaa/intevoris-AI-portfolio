@@ -1,3 +1,4 @@
+/* modified- logo theme marquee gradient */
 @import "tailwindcss";
 
 :root {
@@ -110,4 +111,33 @@ html {
 }
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+/* Logo theme dynamic gradient ribbon */
+@keyframes marqueeGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.logo-gradient-ribbon {
+  background: linear-gradient(
+    115deg,
+    #081d3d 0%,
+    #0f46b8 16%,
+    #1e63e9 32%,
+    #0284c7 48%,
+    #06b6d4 64%,
+    #00e5ff 78%,
+    #1e63e9 88%,
+    #081d3d 100%
+  );
+  background-size: 240% 240%;
+  animation: marqueeGradient 12s ease-in-out infinite;
 }

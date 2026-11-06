@@ -1,4 +1,4 @@
-// modified- responsive hero section with persistent floating whatsapp extraction
+// modified- hero section with logo theme animated gradient marquee ribbon
 "use client"
 import { useEffect, useRef } from "react"
 import { motion } from "framer-motion"
@@ -116,21 +116,25 @@ export default function HeroSection() {
       </div>
 
       {/* Marquee strip — right under hero content, minimal gap */}
-      <div className="relative mt-6 md:mt-8 bg-gradient-to-r from-[#1e63e9] via-[#2b7fff] to-[#06b6d4] py-3 overflow-hidden">
+      <div className="relative mt-6 md:mt-8 py-3.5 overflow-hidden logo-gradient-ribbon border-y border-white/20 shadow-md shadow-blue-950/15">
+        {/* Subtle glass reflections */}
+        <div className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-cyan-200/60 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-blue-300/35 to-transparent pointer-events-none" />
+
         <motion.div
           animate={{ x: [0, -1000] }}
           transition={{ duration: 22, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-          className="flex items-center space-x-8 whitespace-nowrap"
+          className="flex items-center space-x-8 whitespace-nowrap relative z-10"
         >
           {Array.from({ length: 8 }).map((_, i) => (
             <div
               key={i}
-              className="flex items-center space-x-8 text-white font-semibold text-sm tracking-wide uppercase"
+              className="flex items-center space-x-8 text-white font-semibold text-xs sm:text-sm tracking-wider uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]"
             >
               {marqueeItems.map((item) => (
                 <span key={`${i}-${item}`} className="flex items-center space-x-8">
                   <span>{item}</span>
-                  <FaStar className="text-xs opacity-80" />
+                  <FaStar className="text-[11px] sm:text-xs text-cyan-200 drop-shadow-[0_0_6px_rgba(6,182,212,0.8)]" />
                 </span>
               ))}
             </div>

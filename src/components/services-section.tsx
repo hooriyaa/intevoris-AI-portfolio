@@ -446,7 +446,7 @@ export default function ServicesSection() {
           >
             <span className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/70 to-transparent pointer-events-none" />
             <span className="absolute -top-[50%] -bottom-[50%] -left-[100%] w-[60%] bg-gradient-to-r from-transparent via-white/55 to-transparent -skew-x-[25deg] transition-all duration-700 ease-out group-hover:left-[170%] pointer-events-none" />
-            <span className="relative z-10">Discuss Your Use Case</span>
+            <span className="relative z-10">Discuss Your Project</span>
           </Link>
           <Link
             href="/#process"

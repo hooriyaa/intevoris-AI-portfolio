@@ -1,4 +1,4 @@
-// modified- footer with suppressHydrationWarning and responsive layout
+// modified- footer with intevoris@gmail.com and WhatsApp link
 "use client";
 
 import { motion } from "framer-motion";
@@ -9,6 +9,7 @@ import {
   FaMapMarkerAlt,
   FaLinkedin,
   FaTwitter,
+  FaWhatsapp,
   FaStar,
 } from "react-icons/fa";
 
@@ -18,7 +19,12 @@ export default function Footer() {
   const socialLinks = [
     { icon: FaLinkedin, href: "https://www.linkedin.com/", label: "LinkedIn" },
     { icon: FaTwitter, href: "https://twitter.com/", label: "X / Twitter" },
-    { icon: FaEnvelope, href: "mailto:hello@intevoris.ai", label: "Email" },
+    {
+      icon: FaWhatsapp,
+      href: "https://wa.me/923212589668?text=Hello%20Intevoris%20AI!%20I%20visited%20your%20website%20and%20would%20like%20to%20discuss%20an%20AI%20automation%20project%20for%20my%20business.",
+      label: "WhatsApp",
+    },
+    { icon: FaEnvelope, href: "mailto:intevoris@gmail.com", label: "Email" },
   ];
 
   const quickLinks = [
@@ -41,22 +47,26 @@ export default function Footer() {
   return (
     <footer className="bg-white border-t border-slate-200 relative overflow-hidden">
       {/* Ticker */}
-      <div className="bg-gradient-to-r from-[#1e63e9] via-[#2b7fff] to-[#06b6d4] text-white py-2.5 overflow-hidden">
+      <div className="relative py-2.5 sm:py-3 overflow-hidden logo-gradient-ribbon border-y border-white/20 shadow-md shadow-blue-950/15 text-white">
+        {/* Subtle glass reflections */}
+        <div className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-cyan-200/60 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-blue-300/35 to-transparent pointer-events-none" />
+
         <motion.div
-          className="flex whitespace-nowrap"
+          className="flex whitespace-nowrap relative z-10"
           animate={{ x: ["0%", "-50%"] }}
           transition={{ duration: 28, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
         >
           {[0, 1].map((i) => (
-            <div key={i} className="flex items-center space-x-8 px-4" aria-hidden={i === 1}>
-              <span className="font-semibold">Simplify Work. Amplify Growth.</span>
-              <FaStar className="w-3.5 h-3.5" />
-              <span className="font-semibold">Intelligence · Integration · Impact</span>
-              <FaStar className="w-3.5 h-3.5" />
-              <span className="font-semibold">Practical AI for Real Workflows</span>
-              <FaStar className="w-3.5 h-3.5" />
-              <span className="font-semibold">Let's Build Together</span>
-              <FaStar className="w-3.5 h-3.5" />
+            <div key={i} className="flex items-center space-x-8 px-4 text-xs sm:text-sm tracking-wider uppercase font-semibold drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]" aria-hidden={i === 1}>
+              <span>Simplify Work. Amplify Growth.</span>
+              <FaStar className="w-3 h-3 text-cyan-200 drop-shadow-[0_0_6px_rgba(6,182,212,0.8)]" />
+              <span>Intelligence · Integration · Impact</span>
+              <FaStar className="w-3 h-3 text-cyan-200 drop-shadow-[0_0_6px_rgba(6,182,212,0.8)]" />
+              <span>Practical AI for Real Workflows</span>
+              <FaStar className="w-3 h-3 text-cyan-200 drop-shadow-[0_0_6px_rgba(6,182,212,0.8)]" />
+              <span>Let's Build Together</span>
+              <FaStar className="w-3 h-3 text-cyan-200 drop-shadow-[0_0_6px_rgba(6,182,212,0.8)]" />
             </div>
           ))}
         </motion.div>
@@ -74,9 +84,9 @@ export default function Footer() {
             <Image
               src="/new-Logo.png"
               alt="Intevoris AI Solutions"
-              width={200}
-              height={70}
-              className="h-14 w-auto object-contain mb-5"
+              width={240}
+              height={100}
+              className="h-16 sm:h-20 w-auto object-contain mb-5"
             />
             <p className="text-slate-600 mb-6 leading-relaxed text-sm">
               Practical AI solutions that simplify work, integrate with your stack and
@@ -148,15 +158,26 @@ export default function Footer() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h3 className="text-base font-bold text-[#0b1f3a] mb-5">Get in Touch</h3>
-            <div className="space-y-4 text-sm">
+            <div className="space-y-3.5 text-sm">
               <div className="flex items-center space-x-3 text-slate-600">
-                <FaEnvelope className="w-4 h-4 text-[#1e63e9]" />
-                <a href="mailto:hello@intevoris.ai" className="hover:text-[#1e63e9] transition-colors">
-                  hello@intevoris.ai
+                <FaEnvelope className="w-4 h-4 text-[#1e63e9] shrink-0" />
+                <a href="mailto:intevoris@gmail.com" className="hover:text-[#1e63e9] transition-colors truncate">
+                  intevoris@gmail.com
                 </a>
               </div>
               <div className="flex items-center space-x-3 text-slate-600">
-                <FaMapMarkerAlt className="w-4 h-4 text-[#06b6d4]" />
+                <FaWhatsapp className="w-4 h-4 text-[#25D366] shrink-0" />
+                <a
+                  href="https://wa.me/923212589668?text=Hello%20Intevoris%20AI!%20I%20visited%20your%20website%20and%20would%20like%20to%20discuss%20an%20AI%20automation%20project%20for%20my%20business."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#1e63e9] transition-colors"
+                >
+                  +92 321 2589668
+                </a>
+              </div>
+              <div className="flex items-center space-x-3 text-slate-600">
+                <FaMapMarkerAlt className="w-4 h-4 text-[#06b6d4] shrink-0" />
                 <span>Remote-first · Global delivery</span>
               </div>
             </div>

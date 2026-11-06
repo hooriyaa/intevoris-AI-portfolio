@@ -1,4 +1,4 @@
-// modified- restored original working process
+// modified- adjusted bottom spacing between process and approach
 "use client"
 
 import { motion } from "framer-motion"
@@ -117,7 +117,7 @@ export default function ToolsSection() {
     <section
       ref={sectionRef}
       id="process"
-      className="py-14 sm:py-20 md:py-28 px-4 bg-white relative overflow-hidden"
+      className="pt-14 sm:pt-20 md:pt-24 pb-6 sm:pb-8 md:pb-10 px-4 bg-white relative overflow-hidden"
     >
       {/* n8n-style dot grid */}
       <div
